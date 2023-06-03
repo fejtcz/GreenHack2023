@@ -62,7 +62,7 @@
 			<p>Fill in the input parameters of your choice and calculate which option is the most suitable for your
 				company and at the same time the most environmentally friendly.</p>
 			<ul class="actions special">
-				<li><a href="calc.html" class="button">Calculate your choices</a></li>
+				<li><a href="calc.php" class="button">Calculate your choices</a></li>
 			</ul>
 		</footer>
 
