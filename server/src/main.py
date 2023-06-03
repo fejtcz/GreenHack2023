@@ -24,5 +24,5 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(response)
 
 if __name__ == "__main__":
-    with socketserver.TCPServer(("", 8000), Handler) as httpd:
+    with socketserver.TCPServer(("localhost", 8000), Handler) as httpd:
         httpd.serve_forever()
