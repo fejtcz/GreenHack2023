@@ -14,8 +14,8 @@ class ClothTowel:
         days_open = int(data["basic"]["open_days"])
         washing_towels = int(data["cloth_towel"]["washmachine_capacity"])
         washing_price = int(data["cloth_towel"]["wash_price"])
-        
-        return {"towels_count": "50", "laundry_price": "1000", "water_amount": "1010"}
+        towels_count = people // 50
+        return {"towels_count": towels_count, "laundry_price": towels_count / washing_towels * washing_price, "water_amount": towels_count / washing_towels * 40}
 
 class PaperTowel:
     def count_price(self, data):

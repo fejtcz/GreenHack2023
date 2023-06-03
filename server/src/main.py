@@ -12,9 +12,9 @@ class Handler(BaseHTTPRequestHandler):
         body = json.loads(self.rfile.read(int(self.headers["content-length"])))
         print(f"Body recevied: {body}")
         response_dict = {"basic": body["basic"]}
-        response_dict["dryer"] = Dryer().count_price() if "dryer" in body.keys() else {}
-        response_dict["cloth_towel"] = ClothTowel().count_price() if "cloth_towel" in body.keys() else {}
-        response_dict["paper_towel"] = PaperTowel().count_price() if "paper_towel" in body.keys() else {}
+        response_dict["dryer"] = Dryer().count_price() if body["dryer"]["input_power"] != "" else {}
+        response_dict["cloth_towel"] = ClothTowel().count_price() if body["cloth_towel"]["wash_price"] != "" else {}
+        response_dict["paper_towel"] = PaperTowel().count_price() if body["paper_towel"]["price"] != "" else {}
         response = json.dumps(response_dict).encode('utf-8')
 
         self.send_response(200)
