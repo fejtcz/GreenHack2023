@@ -46,21 +46,17 @@
 		};
 
 		$.ajax({
-			type: "POST",
-			url: "localhost:8000",
-			data: JSON.stringify(data),// now data come in this function
+			url: 'http://127.0.0.1:8088',
+			method: 'POST',
+			type: 'jsonp',
 			contentType: "application/json; charset=utf-8",
 			crossDomain: true,
-			dataType: "json",
-			success: function (data, status, jqXHR) {
-
-				alert("success");// write success in " "
+			data: JSON.stringify(data),
+			success: function (response) {
+				console.log(response);
 			},
-
-			error: function (jqXHR, status) {
-				// error handler
-				console.log(jqXHR);
-				alert('fail' + status.code);
+			error: function (error) {
+				console.log(error);
 			}
 		});
 	});
